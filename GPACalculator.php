@@ -5,7 +5,7 @@
 //Reqiure config file
 require_once("inc/config.inc.php");
 
-// //Require interfaces
+//Require interfaces
 require_once("inc/classes/ICourse.class.php");
 require_once("inc/classes/ICourseService.class.php");
 require_once("inc/classes/IFileService.class.php");
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")	{
                 //write to the disk
                 $contents =  CourseService::$CSVString;
                 FileService::write($contents);
-                }    
+                }
         }
         else
         {       //if errors were found, display them
@@ -79,7 +79,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
                 Page::showErrors(Validation::$errors);
                 }
         }
-   
+
         //If someone wanted to edit a course then show the edit form otherwise show the create form
         //when edit is clicked in the table row
         if(isset($_GET["editRowButton"])){
@@ -113,7 +113,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
         }
 
 }
-//sort the courses
+//Sort the courses
 CourseService::sortCourses();
 $array = CourseService::getCourses();
 
